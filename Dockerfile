@@ -8,7 +8,13 @@ RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv) && \
   echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 #brew install tools
-RUN brew install starship awscli pulumi terraform node cdk8s ruby
+RUN brew install starship 
+RUN brew install awscli 
+RUN brew install pulumi 
+RUN brew install terraform 
+RUN brew install node 
+RUN brew install cdk8s 
+RUN brew install ruby
 
 #install cdk 
 RUN npm install -g aws-cdk
