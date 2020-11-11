@@ -1,9 +1,6 @@
 {
     "name": "Dev Container Definition",
-    "image": "bgreengo/codespace-devtools:latest",
-    "postCreateCommand": [
-        "setup.sh"
-    ],
+    "image": "ghcr.io/bgreengo/codespace-devtools:latest",
     "extensions": [
         "dbaeumer.vscode-eslint@2.1.5"
     ]
