@@ -4,6 +4,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/mast
 
 #brew install tools
 RUN brew install starship 
+RUN brew install docker
 RUN brew install awscli 
 RUN brew install pulumi 
 RUN brew install terraform 
