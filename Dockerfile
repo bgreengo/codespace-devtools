@@ -1,7 +1,7 @@
 FROM linuxbrew/linuxbrew
 
-RUN sudo apt-get upgrade -y 
-RUN sudo apt-get install jq -y
+RUN apt-get upgrade -y 
+RUN apt-get install jq -y
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
