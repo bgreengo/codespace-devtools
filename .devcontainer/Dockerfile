@@ -28,8 +28,8 @@ RUN curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09
   mv kubectl /usr/local/bin/kubectl
 
 # install linuxbrew
-RUN "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
+# RUN "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
 
 # Setup shell
 USER $USERNAME
