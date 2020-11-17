@@ -9,7 +9,10 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/mast
 #brew install tools
 RUN brew install starship 
 RUN brew install docker
+RUN brew install kubectl
+RUN brew install helm
 RUN brew install awscli 
+RUN brew install pipenv
 RUN brew install pulumi 
 RUN brew install terraform 
 RUN brew install node 
@@ -19,7 +22,3 @@ RUN brew install ruby
 #install cdk 
 RUN npm install -g aws-cdk
 
-# install terraspace
-RUN gem install terraspace
-
-ADD refresh_creds.sh /
