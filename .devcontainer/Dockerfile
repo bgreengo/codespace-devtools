@@ -41,7 +41,7 @@ ENV ENV="/home/$USERNAME/.ashrc" \
   
 RUN npm install -g spaceship-prompt
 
-ADD setup.sh /root/
+ADD bin/setup.sh /root/
 
 # RUN brew install starship 
 # RUN brew install docker
