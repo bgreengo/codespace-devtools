@@ -1,6 +1,16 @@
 {
     "name": "Dev Container Definition",
     "image": "bgreengo/codespace-devtools:latest",
+//     "dockerFile": "Dockerfile",
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=remote-workspace,target=/workspace,type=volume",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "containerUser": "vscode",
+    "postCreateCommand": [
+        ".devcontainer/bin/setup.sh"
+    ],
     "extensions": [
         "dbaeumer.vscode-eslint@2.1.5"
     ]
