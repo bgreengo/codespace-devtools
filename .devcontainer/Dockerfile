@@ -16,6 +16,8 @@ RUN brew install pipenv
 RUN brew install pulumi 
 RUN brew install terraform 
 RUN brew install node 
+RUN brew install yarn
+RUN brew install vim
 RUN brew install cdk8s 
 RUN brew install ruby
 
