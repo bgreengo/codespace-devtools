@@ -3,7 +3,7 @@ FROM jsii/superchain
 RUN yum update -y
 RUN yum install -y jq wget zsh sudo
 
-RUN npm i -g aws-cdk
+RUN npm i -g aws-cdk spaceship-prompt
 
 RUN mv $(which aws) /usr/bin/aws_V1
 
@@ -38,8 +38,6 @@ ENV ENV="/home/$USERNAME/.ashrc" \
   ZSH=/home/$USERNAME/.oh-my-zsh \
   EDITOR=vi \
   LANG=en_US.UTF-8
-  
-RUN npm install -g spaceship-prompt
 
 ADD bin/setup.sh /root/
 
