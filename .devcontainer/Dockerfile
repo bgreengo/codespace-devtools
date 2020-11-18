@@ -42,8 +42,8 @@ RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtu
 RUN echo "exec `which zsh`" > ~/.ashrc
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
-RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv); exit 0
 RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
-RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile; exit 0
 
-RUN brew install hello
+RUN brew install hello; exit 0
