@@ -15,6 +15,7 @@ if [[ $CODESPACES == 'true' ]]; then
   sudo groupmod -g 800 docker
   # add current user to `docker` group
   sudo usermod -a -G docker $USERNAME
+  echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
 else 
   if [[ is_ec2 ]]; then
     # change 'docker' group to gid 993 
