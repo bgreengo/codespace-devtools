@@ -46,6 +46,8 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get update -y	
 RUN sudo apt-get update -y
 
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
 RUN brew install pipenv
 RUN brew install pulumi 
 RUN brew install terraform 
