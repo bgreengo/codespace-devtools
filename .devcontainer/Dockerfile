@@ -43,7 +43,8 @@ RUN echo "exec `which zsh`" > ~/.ashrc
 
 FROM linuxbrew/linuxbrew
 RUN sudo apt-get upgrade -y 
-RUN sudo apt-get update -y	RUN sudo apt-get update -y
+RUN sudo apt-get update -y	
+RUN sudo apt-get update -y
 
 RUN brew install pipenv
 RUN brew install pulumi 
