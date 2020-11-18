@@ -48,8 +48,8 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
-RUN brew install pipenv
-RUN brew install pulumi 
-RUN brew install terraform 
-RUN brew install cdk8s 
-RUN brew install ruby
+# RUN brew install pipenv
+# RUN brew install pulumi 
+# RUN brew install terraform 
+# RUN brew install cdk8s 
+# RUN brew install ruby
