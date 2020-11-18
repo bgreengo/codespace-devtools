@@ -43,8 +43,8 @@ RUN ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
 RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
 
-RUN brew install pipenv
-RUN brew install pulumi 
-RUN brew install terraform 
-RUN brew install cdk8s 
-RUN brew install ruby
+# RUN brew install pipenv
+# RUN brew install pulumi 
+# RUN brew install terraform 
+# RUN brew install cdk8s 
+# RUN brew install ruby
