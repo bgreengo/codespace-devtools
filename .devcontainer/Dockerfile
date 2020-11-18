@@ -28,10 +28,6 @@ RUN curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09
   chmod +x kubectl && \
   mv kubectl /usr/local/bin/kubectl
 
-# install linuxbrew
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
-RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
-
 # Setup shell
 USER $USERNAME
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended &> /dev/null
@@ -40,7 +36,12 @@ ENV ENV="/home/$USERNAME/.ashrc" \
   EDITOR=vi \
   LANG=en_US.UTF-8
 
-ADD bin/setup.sh /root/
+RUN git clone https://github.com/denysdovhan/spaceship-prompt.git "/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
+RUN ln -s "/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "/.oh-my-zsh/custom/themes/spaceship.zsh-theme" 
+
+# install linuxbrew
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
+RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
 
 # RUN brew install starship 
 # RUN brew install docker
