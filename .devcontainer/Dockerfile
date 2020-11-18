@@ -3,7 +3,7 @@ FROM jsii/superchain
 RUN yum update -y
 RUN yum install -y jq wget zsh sudo
 
-RUN npm i -g aws-cdk spaceship-prompt
+RUN npm i -g aws-cdk 
 
 RUN mv $(which aws) /usr/bin/aws_V1
 
