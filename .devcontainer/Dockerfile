@@ -1,6 +1,7 @@
 FROM jsii/superchain
 
 RUN yum update -y
+RUN yum groupinstall 'Development Tools' -y
 RUN yum install -y jq wget zsh sudo
 
 RUN npm i -g aws-cdk 
