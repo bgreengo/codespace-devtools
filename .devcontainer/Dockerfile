@@ -2,7 +2,7 @@ FROM jsii/superchain
 
 RUN yum update -y
 RUN yum groupinstall 'Development Tools' -y
-RUN yum install -y jq wget zsh sudo
+RUN yum install -y jq wget zsh sudo vim
 
 RUN npm i -g aws-cdk 
 
@@ -43,16 +43,8 @@ RUN ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
 RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
 
-# RUN brew install starship 
-# RUN brew install docker
-# RUN brew install kubectl
-# RUN brew install helm
-# RUN brew install awscli 
-# RUN brew install pipenv
-# RUN brew install pulumi 
-# RUN brew install terraform 
-# RUN brew install node 
-# RUN brew install yarn
-# RUN brew install vim
-# RUN brew install cdk8s 
-# RUN brew install ruby
+RUN brew install pipenv
+RUN brew install pulumi 
+RUN brew install terraform 
+RUN brew install cdk8s 
+RUN brew install ruby
