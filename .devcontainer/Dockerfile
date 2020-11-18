@@ -37,7 +37,7 @@ ENV ENV="/home/$USERNAME/.ashrc" \
   LANG=en_US.UTF-8
 
 RUN git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.oh-my-zsh/custom/themes/spaceship-prompt
-RUN ln -s "/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "/.oh-my-zsh/custom/themes/spaceship.zsh-theme" 
+RUN ln -s /.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme /.oh-my-zsh/custom/themes/spaceship.zsh-theme 
 
 # install linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
