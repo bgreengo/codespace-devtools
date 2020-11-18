@@ -42,14 +42,19 @@ RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtu
 RUN echo "exec `which zsh`" > ~/.ashrc
 
 # install linuxbrew
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
+# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
 # RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 # RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+# RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+# RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
-# RUN brew install pipenv
-# RUN brew install pulumi 
-# RUN brew install terraform 
-# RUN brew install cdk8s 
-# RUN brew install ruby
+RUN git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+RUN mkdir ~/.linuxbrew/bin
+RUN ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
+RUN eval $(~/.linuxbrew/bin/brew shellenv)
+
+RUN brew install pipenv
+RUN brew install pulumi 
+RUN brew install terraform 
+RUN brew install cdk8s 
+RUN brew install ruby
