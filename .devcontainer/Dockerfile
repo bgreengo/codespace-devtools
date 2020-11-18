@@ -41,17 +41,9 @@ RUN ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-
 RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtualenv)\nsource $ZSH/oh-my-zsh.sh' > ~/.zshrc
 RUN echo "exec `which zsh`" > ~/.ashrc
 
-# install linuxbrew
-# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
-# RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-# RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-# RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-
-RUN git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
-RUN mkdir ~/.linuxbrew/bin
-RUN ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
-RUN eval $(~/.linuxbrew/bin/brew shellenv)
+FROM linuxbrew/linuxbrew
+RUN sudo apt-get upgrade -y 
+RUN sudo apt-get update -y	RUN sudo apt-get update -y
 
 RUN brew install pipenv
 RUN brew install pulumi 
