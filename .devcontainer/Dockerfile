@@ -2,7 +2,7 @@ FROM jsii/superchain
 
 RUN yum update -y
 RUN yum groupinstall 'Development Tools' -y
-RUN yum install -y jq wget zsh sudo vim
+RUN yum install -y jq wget zsh sudo vim ruby
 
 RUN npm i -g aws-cdk 
 
