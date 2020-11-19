@@ -42,5 +42,16 @@ RUN ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-
 RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git zsh-autosuggestions virtualenv)\nsource $ZSH/oh-my-zsh.sh' > ~/.zshrc
 RUN echo "exec `which zsh`" > ~/.ashrc
 
+RUN /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/$USERNAME/.bash_profile
+RUN eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
+
+RUN brew install helm	
+RUN brew install pipenv	
+RUN brew install pulumi 
+RUN brew install terraform 	
+RUN brew install cdk8s 	
+RUN brew install ruby
 
 
