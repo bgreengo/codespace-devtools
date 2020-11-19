@@ -1,10 +1,6 @@
 {
     "name": "Dev Container Definition",
     "image": "bgreengo/codespace-devtools:latest",
-    "postCreateCommand": [
-        "echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/dev/.profile",
-        "eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    ],
     "extensions": [
         "dbaeumer.vscode-eslint@2.1.5"
     ]
