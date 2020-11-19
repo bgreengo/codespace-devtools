@@ -8,7 +8,7 @@ RUN npm i -g aws-cdk
 
 RUN mv $(which aws) /usr/bin/aws_V1
 
-ARG USERNAME=vscode
+ARG USERNAME=dev
 ARG USER_UID=1000
 ARG USER_GID=1000
 
@@ -42,8 +42,7 @@ RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtu
 RUN echo "exec `which zsh`" > ~/.ashrc
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
-RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv); exit 0
-RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
-RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile; exit 0
+RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
+RUN eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
 
 RUN brew install hello; exit 0
