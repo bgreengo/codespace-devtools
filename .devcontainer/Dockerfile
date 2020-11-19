@@ -44,5 +44,5 @@ RUN echo "exec `which zsh`" > ~/.ashrc
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
 RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> $HOME/.zshrc
 
-RUN brew install gcc; exit 0
+RUN zsh && brew install gcc; exit 0
 
