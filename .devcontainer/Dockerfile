@@ -42,5 +42,5 @@ RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtu
 RUN echo "exec `which zsh`" > ~/.ashrc
 
 COPY bin/setup.sh /
-RUN chmod +x /setup.sh && /setup.sh
+RUN sudo chmod +x /setup.sh && /setup.sh
 
