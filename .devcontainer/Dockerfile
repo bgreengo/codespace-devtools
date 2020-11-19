@@ -30,18 +30,6 @@ RUN curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.8/2020-09
 
 # Setup shell
 USER $USERNAME
-RUN /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/$USERNAME/.profile
-RUN eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
-
-RUN brew install helm	
-RUN brew install pipenv	
-RUN brew install pulumi 
-RUN brew install terraform 	
-RUN brew install cdk8s 	
-RUN brew install ruby
-
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended &> /dev/null
 ENV ENV="/home/$USERNAME/.ashrc" \
   ZSH=/home/$USERNAME/.oh-my-zsh \
