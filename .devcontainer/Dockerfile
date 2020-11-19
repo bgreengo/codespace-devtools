@@ -43,7 +43,7 @@ RUN echo "exec `which zsh`" > ~/.ashrc
 
 RUN /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/dev/.profile
+RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/$USERNAME/.zshrc
 RUN eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
 
 RUN brew install helm	
