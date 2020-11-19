@@ -42,7 +42,8 @@ RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtu
 RUN echo "exec `which zsh`" > ~/.ashrc
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" "" --unattended
-RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> $HOME/.zshrc
+RUN export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+RUN source ~/.zshrc
 
-RUN zsh && brew install gcc; exit 0
+RUN brew install gcc; exit 0
 
