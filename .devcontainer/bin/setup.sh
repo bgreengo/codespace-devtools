@@ -1,33 +1,10 @@
 #!/bin/bash
 
-USERNAME=${USERNAME-vscode}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-is_ec2() {
-  curl --max-time 1 -s http://169.254.169.254/latest/meta-data/instance-id 2>&1 > /dev/null
-  return $?
-}
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
-
-# if in codespaces
-if [[ $CODESPACES == 'true' ]]; then
-  printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git virtualenv)\nsource $ZSH/oh-my-zsh.sh' > "/home/$USERNAME/.zshrc"
-  # change 'docker' group to gid 800 
-  sudo groupmod -g 800 docker
-  # add current user to `docker` group
-  sudo usermod -a -G docker $USERNAME
-  echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/vscode/.profile
-else 
-  if [[ is_ec2 ]]; then
-    # change 'docker' group to gid 993 
-    sudo groupmod -g 993 docker
-    # add current user to `docker` group
-    sudo usermod -a -G docker $USERNAME
-    newgrp docker
-    # add current user to `root` group
-    sudo usermod -a -G root $USERNAME
-  fi
-  printf 'ZSH_THEME="spaceship"\nsource $ZSH/oh-my-zsh.sh' > "/home/$USERNAME/.zshrc"
-fi
-
-
-echo "exec `which zsh`" > "/home/$USERNAME/.ashrc"
+brew install hello
