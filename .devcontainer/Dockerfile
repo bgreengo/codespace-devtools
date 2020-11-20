@@ -2,8 +2,13 @@ FROM jsii/superchain
 
 RUN yum update -y
 RUN yum groupinstall 'Development Tools' -y
-RUN yum install -y jq wget zsh sudo vim ruby
+RUN yum install -y jq wget zsh sudo vim 
 
+# Install Linuxbrew
+COPY bin/setup.sh /
+RUN chmod +x /setup.sh && /setup.sh
+
+# Install AWS CDK
 RUN npm i -g aws-cdk 
 
 RUN mv $(which aws) /usr/bin/aws_V1
@@ -16,7 +21,9 @@ ARG USER_GID=1000
 RUN adduser $USERNAME -s /bin/sh -u $USER_UID -U && \
   mkdir -p /etc/sudoers.d && \
   echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
-  chmod 0440 /etc/sudoers.d/$USERNAME
+  chmod 0440 /etc/sudoers.d/$USERNAME && \
+  groupmod -g 800 docker && \
+  usermod -a -G docker $USERNAME
 
 # install aws-cli v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
@@ -42,16 +49,6 @@ RUN ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-
 RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git zsh-autosuggestions virtualenv)\nsource $ZSH/oh-my-zsh.sh' > ~/.zshrc
 RUN echo "exec `which zsh`" > ~/.ashrc
 
-RUN /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-RUN echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/$USERNAME/.bash_profile
-RUN eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv); exit 0
-
-RUN brew install helm	
-RUN brew install pipenv	
-RUN brew install pulumi 
-RUN brew install terraform 	
-RUN brew install cdk8s 	
-RUN brew install ruby
 
 
