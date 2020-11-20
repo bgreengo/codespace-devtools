@@ -5,8 +5,6 @@ RUN yum groupinstall 'Development Tools' -y
 RUN yum install -y jq wget zsh sudo vim 
 
 # Install Linuxbrew
-COPY bin/setup.sh /
-RUN chmod +x /setup.sh && /setup.sh
 
 # Install AWS CDK
 RUN npm i -g aws-cdk 
@@ -48,6 +46,18 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/cust
 RUN ln -s ~/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-my-zsh/custom/themes/spaceship.zsh-theme 
 RUN printf 'ZSH_THEME="spaceship"\nENABLE_CORRECTION="false"\nplugins=(git zsh-autosuggestions virtualenv)\nsource $ZSH/oh-my-zsh.sh' > ~/.zshrc
 RUN echo "exec `which zsh`" > ~/.ashrc
+
+RUN git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+RUN mkdir ~/.linuxbrew/bin
+RUN ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
+RUN eval $(~/.linuxbrew/bin/brew shellenv)
+
+RUN brew install helm	
+RUN brew install pipenv	
+RUN brew install pulumi 
+RUN brew install terraform 	
+RUN brew install cdk8s 	
+RUN brew install ruby
 
 
 
