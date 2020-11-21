@@ -16,9 +16,4 @@ RUN brew install terraform
 RUN brew install node 
 RUN brew install cdk8s 
 RUN brew install ruby
-
-
-
-
-
-
+RUN brew install starship
