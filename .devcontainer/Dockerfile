@@ -12,6 +12,7 @@ RUN brew install aws-cdk
 RUN brew install docker
 RUN brew install kubectl
 RUN brew install helm
+RUN brew install gh
 RUN brew install awscli 
 RUN brew install pipenv
 RUN brew install pulumi 
