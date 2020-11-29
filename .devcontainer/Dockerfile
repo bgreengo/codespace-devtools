@@ -10,7 +10,6 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/mast
 RUN brew install yarn
 RUN brew install aws-cdk
 RUN brew install docker
-RUN brew install rust
 RUN brew install vim
 RUN brew install kubectl
 RUN brew install helm
