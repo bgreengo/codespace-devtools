@@ -19,7 +19,7 @@ RUN brew install pulumi
 RUN brew install terraform 
 RUN brew install node 
 RUN brew install cdk8s 
-RUN brew install ruby
+RUN brew install rbenv
 
 RUN brew install starship
 RUN echo 'eval "$(starship init bash)"' > ~/.bashrc
