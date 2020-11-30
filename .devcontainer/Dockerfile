@@ -20,13 +20,12 @@ RUN brew install pulumi
 RUN brew install terraform 
 RUN brew install node 
 RUN brew install cdk8s 
-
-RUN brew install starship
-RUN echo 'eval "$(starship init bash)"' > ~/.bashrc
-
 RUN brew install rbenv
-RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"/neval "$(rbenv init)"' > ~/.bashrc
+RUN brew install starship
+
+RUN echo 'eval "$(starship init bash)"\nexport PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init)"' > ~/.bashrc
 RUN rbenv install 2.7.2
 RUN rbenv global 2.7.2
 RUN echo 2.7.2 > ~/.ruby-version
+RUN rbenv rehash
 RUN gem install terraspace 
