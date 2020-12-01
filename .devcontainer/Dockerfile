@@ -29,3 +29,5 @@ RUN rbenv global 2.7.2
 RUN echo 2.7.2 > ~/.ruby-version
 RUN rbenv rehash
 RUN gem install terraspace 
+
+RUN npm install -g @aws-amplify/cli
