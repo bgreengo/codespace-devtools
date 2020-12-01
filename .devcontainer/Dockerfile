@@ -4,10 +4,9 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get update -y
 RUN sudo apt-get install jq -y
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+RUN brew upgrade
 
 #brew install tools
-RUN brew install starship
 RUN brew install yarn
 RUN brew install aws-cdk
 RUN brew install docker
