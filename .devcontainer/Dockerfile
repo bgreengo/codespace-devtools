@@ -4,7 +4,7 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get update -y
 RUN sudo apt-get install jq -y
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+RUN brew upgrade
 
 #brew install tools
 RUN brew install yarn
@@ -22,6 +22,9 @@ RUN brew install node
 RUN brew install cdk8s 
 RUN brew install rbenv
 RUN brew install starship
+RUN brew install pipx
+RUN pipx ensurepath
+RUN pipx install aws-sso-util
 
 RUN echo 'eval "$(starship init bash)"\nexport PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init)"' > ~/.bashrc
 RUN rbenv install 2.7.2
