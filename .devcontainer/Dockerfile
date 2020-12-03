@@ -6,7 +6,7 @@ RUN sudo apt-get install jq -y
 
 RUN brew upgrade
 
-RUN curl -fsSL https://starship.rs/install.sh | bash --yes
+RUN curl -fsSL https://starship.rs/install.sh --yes | bash
 
 #brew install tools
 RUN brew install yarn
