@@ -6,6 +6,8 @@ RUN sudo apt-get install jq -y
 
 RUN brew upgrade
 
+RUN curl -fsSL https://starship.rs/install.sh | bash
+
 #brew install tools
 RUN brew install yarn
 RUN brew install aws-cdk
@@ -30,7 +32,7 @@ RUN pipx install aws-export-credentials
 RUN echo 'eval "$(starship init bash)"\n \
   export AWS_CONFIGURE_SSO_DEFAULT_SSO_START_URL=https://d-9267050e58.awsapps.com/start\n \
   export AWS_CONFIGURE_SSO_DEFAULT_SSO_REGION=us-west-2\n \
-  export PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init)"' > ~/.bashrc
+  export PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init -)"' > ~/.bashrc
 RUN rbenv install 2.7.2
 RUN rbenv global 2.7.2
 RUN echo 2.7.2 > ~/.ruby-version
