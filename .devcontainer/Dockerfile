@@ -6,9 +6,10 @@ RUN sudo apt-get install jq -y
 
 RUN brew upgrade
 
-RUN chmod +x .devcontainer/bin/install.sh 
-RUN .devcontainer/bin/install.sh --force
-
+RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
+  chmod +x install.sh && \
+  ./install.sh --force
+  
 #brew install tools
 RUN brew install yarn
 RUN brew install aws-cdk
