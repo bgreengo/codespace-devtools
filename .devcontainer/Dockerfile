@@ -4,7 +4,6 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get update -y
 RUN sudo apt-get install jq -y
 
-# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"  
 RUN git -C /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow
 RUN brew upgrade
 RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
@@ -29,14 +28,13 @@ RUN brew install rbenv
 
 RUN brew install pipx
 RUN pipx ensurepath
-RUN pipx install aws-sso-credential-process
-RUN pipx install aws-export-credentials
+RUN pipx install aws-sso-util
 
 RUN echo 'eval "$(starship init bash)"\nexport AWS_CONFIGURE_SSO_DEFAULT_SSO_START_URL=https://d-9267050e58.awsapps.com/start\nexport AWS_CONFIGURE_SSO_DEFAULT_SSO_REGION=us-west-2\nsso(){\n \
     unset AWS_PROFILE\n \
     export AWS_PROFILE=$1\n \
-    aws sts get-caller-identity &> /dev/null || aws sso login || (unset AWS_PROFILE && aws-configure-sso-profile --profile $1)\n \
-    eval $(aws-export-credentials --env-export)\n}\nexport PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init -)"' > ~/.bashrc
+    aws sts get-caller-identity &> /dev/null || aws sso login || (unset AWS_PROFILE && aws-sso-util configure profile $1)\n \
+    \n}\nexport PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init -)"' > ~/.bashrc
 RUN rbenv install 2.7.2
 RUN rbenv global 2.7.2
 RUN echo 2.7.2 > ~/.ruby-version
