@@ -4,7 +4,7 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get update -y
 RUN sudo apt-get install jq -y
 
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
   chmod +x install.sh && \
