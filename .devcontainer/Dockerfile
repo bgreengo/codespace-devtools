@@ -4,12 +4,15 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get update -y
 RUN sudo apt-get install jq -y
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+# RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
-RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
-  chmod +x install.sh && \
-  ./install.sh --force
+# RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
+#   chmod +x install.sh && \
+#   ./install.sh --force
   
+RUN git -C /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow
+RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
 #brew install tools
 RUN brew install yarn
 RUN brew install aws-cdk
