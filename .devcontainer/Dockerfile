@@ -12,7 +12,7 @@ RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
   unzip awscliv2.zip && \
-  ./aws/install
+  sudo ./aws/install
 
 #brew install tools
 RUN brew install yarn
