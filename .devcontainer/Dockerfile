@@ -19,6 +19,7 @@ RUN brew install yarn
 RUN brew install aws-cdk
 RUN brew install docker
 RUN brew install vim
+RUN brew install serverless
 RUN brew install kubectl
 RUN brew install helm
 RUN brew install gh
