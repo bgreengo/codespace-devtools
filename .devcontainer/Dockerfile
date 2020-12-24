@@ -10,6 +10,10 @@ RUN curl "https://starship.rs/install.sh" -o "install.sh" && \
   chmod +x install.sh && \
   ./install.sh --force
 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+  unzip awscliv2.zip && \
+  ./aws/install
+
 #brew install tools
 RUN brew install yarn
 RUN brew install aws-cdk
@@ -18,7 +22,6 @@ RUN brew install vim
 RUN brew install kubectl
 RUN brew install helm
 RUN brew install gh
-RUN brew install awscli 
 RUN brew install pipenv
 RUN brew install pulumi 
 RUN brew install terraform 
